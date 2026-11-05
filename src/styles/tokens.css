@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Exact uploaded theme hex tokens */
+  --c-darkest: #06141B;
+  --c-dark: #11212D;
+  --c-petrol: #253745;
+  --c-steel: #4A5C6A;
+  --c-mist: #9BA8AB;
+  --c-pearl: #CCD0CF;
+
+  /* Semantic tokens */
+  --mist: #F4F6F6;
+  --cloud: #E6EBEC;
+  --porcelain: #FFFFFF;
+  --ink: #06141B;
+  --ink-soft: #4A5C6A;
+  --line: rgba(74, 92, 106, 0.22);
+  
+  --brand: #253745;
+  --brand-dark: #11212D;
+  --brand-steel: #4A5C6A;
+  --brand-mist: #9BA8AB;
+  --brand-pearl: #CCD0CF;
+
+  /* Ambience dynamic variables with theme colors */
+  --amb-wash: rgba(204, 208, 207, 0.35);
+  --amb-accent: #253745;
+  --amb-glow: rgba(155, 168, 171, 0.6);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--mist);
+  color: var(--ink);
+  transition: background-color 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+/* Glass cards styled with the theme */
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(6, 20, 27, 0.05);
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 400ms cubic-bezier(0.22, 1, 0.36, 1), border-color 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(6, 20, 27, 0.09), 0 0 30px var(--amb-glow);
+  border-color: rgba(74, 92, 106, 0.45);
+}
+
+/* Eyebrow badge styling with theme colors */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-dark);
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+  padding: 0.3rem 0.85rem;
+  background-color: rgba(204, 208, 207, 0.4);
+  border: 1px solid var(--c-mist);
+  border-radius: 9999px;
+}
+
+/* Headings font */
+h1, h2, h3, .font-fraunces {
+  font-family: 'Fraunces', serif;
+  letter-spacing: -0.015em;
+  color: var(--c-darkest);
+  font-weight: 400;
+}
+
+/* Focus visible styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--c-steel);
+  outline-offset: 3px;
+}
+
+/* Fine grain overlay */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
